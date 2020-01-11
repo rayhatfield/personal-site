@@ -5,5 +5,15 @@
  */
 
 module.exports = {
-  /* Your site config here */
+  siteMetadata: {
+    title: 'ray hatfield',
+    description: 'ray hatfield: mild persistent panic',
+    author: 'ray hatfield',
+    social: {
+      twitter: '@rayhatfield'
+    }
+  },
+  plugins: [
+    'gatsby-plugin-react-helmet'
+  ]
 }
