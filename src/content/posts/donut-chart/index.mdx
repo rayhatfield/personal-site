@@ -3,6 +3,10 @@ title: "Building an SVG donut chart with React"
 date: "2020-01-04"
 ---
 
+import Chart from './components/demo-chart/';
+
+<Chart />
+
 # The approach
 Our component will render a slightly more complicated version of this:
 
@@ -462,7 +466,7 @@ makePath = ({angleDeg, startAngle, endAngle}, i) => {
 	.pie-chart-segment:nth-child(3n + 3) {
 		fill: blue;
 	}
-	```
+```
 # Adding gaps
 * offset the angles
 	* start angle + 1°, end angle - 1°
@@ -492,7 +496,7 @@ makePath = ({angleDeg, startAngle, endAngle}, i) => {
 * we need to compute the angle/offset that will produce an arc the size of our desired gap at the inner radius, and again for the same length at the outer radius
 ```js
 	angleForArcLength = (arcLength, atRadius) => arcLength / atRadius;`
-	```
+```
 	* how/why this works
 * Add the offsets to the coordinate calculations
 	* start angle inner + offset inner

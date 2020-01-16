@@ -1,9 +1,12 @@
 const path = require('path');
 const {createFilePath} = require('gatsby-source-filesystem');
 
+// const createMarkdownPages = require('./create-pages-markdown').default;
+const createMdxPages = require('./create-pages-mdx').default;
+
 exports.onCreateNode = ({node, getNode, actions}) => {
 	const {createNodeField} = actions;
-	if (node.internal.type === 'MarkdownRemark') {
+	if (['MarkdownRemark', 'Mdx'].includes(node.internal.type)) {
 		const slug = createFilePath({node, getNode, basePath: 'pages'});
 		createNodeField({
 			node,
@@ -11,32 +14,19 @@ exports.onCreateNode = ({node, getNode, actions}) => {
 			value: slug
 		});
 	}
+	// if (node.internal.type === 'Mdx') {
+	// 	const slug = createFilePath({node, getNode, basePath: 'pages'});
+	// 	createNodeField({
+	// 		node,
+	// 		name: 'slug',
+	// 		value: slug
+	// 	});
+	// }
 }
 
 exports.createPages = async ({graphql, actions}) => {
-	const {createPage} = actions;
-	const result = await graphql(`
-		query {
-			allMarkdownRemark {
-				edges {
-					node {
-						fields {
-							slug
-						}
-					}
-				}
-			}
-		}
-	`);
-	result.data.allMarkdownRemark.edges.forEach(({node}) => {
-		createPage({
-			path: node.fields.slug,
-			component: path.resolve('./src/templates/blog-post.js'),
-			context: {
-				// data passed to context is available
-				// in page queries as GraphQL variables
-				slug: node.fields.slug
-			}
-		})
-	})
+	await Promise.all([
+		// createMarkdownPages(graphql, actions),
+		createMdxPages(graphql, actions)
+	]);
 }

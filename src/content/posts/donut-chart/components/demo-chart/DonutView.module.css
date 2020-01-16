@@ -1,0 +1,14 @@
+.donut-view {
+  display: flex;
+  justify-content: space-between;
+}
+
+.donut-controls {
+  flex: 0 0 25%;
+  padding: 2rem;
+}
+
+.donut-chart-container {
+  flex: 1 1 75%;
+  padding: 2rem;
+}

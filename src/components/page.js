@@ -6,7 +6,7 @@ import {useSiteMetadata} from '../hooks';
 export default ({children}) => {
 	const {title, description, social} = useSiteMetadata();
 	return (
-		<>
+		<div>
 			<Helmet>
 				<title>{title}</title>
 				
@@ -22,6 +22,6 @@ export default ({children}) => {
 			<main>
 				{children}
 			</main>
-		</>
+		</div>
 	);
 }
