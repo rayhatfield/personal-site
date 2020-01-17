@@ -47,7 +47,7 @@ Let’s stub out our DonutChart component.
 
 For now, the DonutChart component will render an empty `<svg>` element with a `viewBox` attribute. The `viewBox` establishes the SVG’s coordinate space. Setting it to `0 0 100 100` gives us a canvas 100 units tall and wide, with the top-left corner at (0, 0) and bottom-right at (100, 100). [^4]
 
-I’ve added a `values` prop declaration that expects an array of objects, each with a numeric`value` property. [^5]
+I’ve added a `values` prop declaration that expects an array of objects, each with a numeric `value` property. [^5]
 
 ```js
 // src/donut-chart/DonutChart.jsx
@@ -151,7 +151,7 @@ const values = Array.from(
 );
 ```
 
-`Array.from` creates an array from an “array-like” object, which happens to include anything with a numeric`length`.[^6]
+`Array.from` creates an array from an “array-like” object, which happens to include anything with a numeric `length`.[^6]
 
 Passing an object literal `{length: 5}` to `Array.from` returns an 5-item array filled with `undefined`:
 
@@ -217,7 +217,7 @@ Array.from(
 // [43, 26, 64, 90, 15]
 ```
 
-And finally, we want objects, not just numbers. So instead of returning the integers we’ll return an object literals with a `value` property[^8].
+And finally, we want objects, not just numbers. So instead of returning the integers we’ll return an object literal with a `value` property[^8].
 
 ```js
 Array.from(
@@ -534,7 +534,7 @@ makePath = ({angleDeg, startAngle, endAngle}, i) => {
 
 [^7]:	which will always be `undefined` in this case anyway
 
-[^8]:	The parenthesis around the object literal are required here. Without them the curly braces would be interpreted as the body of the arrow function, not a return value.
+[^8]:	The parentheses around the object literal are required here. Without them the curly braces would be interpreted as the body of the arrow function, not a return value.
 
 [^9]:	The other two are [ Cubic Bézier Curve ](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/d#Cubic_B%C3%A9zier_Curve "Cubic Bézier Curve command reference at MDN") and [ Quadratic Bézier Curve ](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/d#Quadratic_B%C3%A9zier_Curve "Quadratic Bézier Curve command reference at MDN").
 
