@@ -1,14 +1,10 @@
 import React from 'react';
 // import {graphql} from 'gatsby';
 
-import Page from '../components/page';
-
 import Home from './home';
 
 export default () => (
-	<Page>
-		<Home />
-	</Page>
+	<Home />
 );
 
 // export const query = graphql`

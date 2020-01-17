@@ -14,6 +14,15 @@ module.exports = {
     }
   },
   plugins: [
+    {
+      resolve: 'gatsby-plugin-manifest',
+      options: {
+        name: 'ray hatfield: information of questionable value',
+        short_name: 'ray.wtf',
+        start_url: '/',
+        icon: 'src/images/helmet.jpg'
+      }
+    },
     'gatsby-plugin-react-helmet',
     {
       resolve: 'gatsby-source-filesystem',
