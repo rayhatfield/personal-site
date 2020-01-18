@@ -1,11 +1,38 @@
 ---
 title: "Building an SVG donut chart with React"
 date: "2020-01-04"
+author: "ray hatfield"
+keywords: "javascript, react, pie chart, donut chart, chart, graph, svg, component, tutorial"
 ---
 
 import Chart from './components/demo-chart/';
 
+# Introduction
+A while back I needed to render a simple donut chart in [React](https://reactjs.org/).
+While there are [many](http://recharts.org/en-US/examples/PieChartWithPaddingAngle)
+[existing](https://uber.github.io/react-vis/examples/showcases/radial)
+[charting](https://formidable.com/open-source/victory/gallery/custom-tooltip-labels)
+[libraries](https://nivo.rocks/pie) capable of doing this kind of thing, I decided to roll my own component because:
+
+1. My needs were simple enough that dragging in an entire charting library felt like overkill.
+2. It's a mildly interesting thing to do; novel because it’s graphic and uses SVG which is a slight
+departure from what I'm usually doing, and small enough and self-contained enough to be manageable.
+3. I needed to match a design I'd been given and thought drawing it accordingly from the outset might
+be easier (or at least more fun) than trying to bend a third party component's treatment to match.
+
+I thought others might find it useful to see how I did it, so I'll attempt to explain it step-by-step.
+
+When we’re done we’ll have a simple donut chart component like this:
+
 <Chart />
+
+# Prerequisites
+
+I've tried to be thorough in my explanation of the component itself, but this tutorial assumes:
+* You're already familiar with javascript and React components in general.
+* You have [Node.js](https://nodejs.org/) installed. Alternatively, you can do this in a hosted environment like the outstanding [CodeSandbox](https://codesandbox.io).
+* You’re comfortable running a couple basic terminal commands.
+* You have a code editor installed, like [VS Code](https://code.visualstudio.com/) or [Atom](https://atom.io).
 
 # The approach
 Our component will render a slightly more complicated version of this:
