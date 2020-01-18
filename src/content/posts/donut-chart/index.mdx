@@ -184,7 +184,7 @@ Array.from(
 // [0, 2, 4, 6, 8]
 ```
 
-For our purposes we don’t care about the value[^7] or index parameters. We just want some arbitrary values. So we can lose the arguments and return random numbers:
+For our purposes we don’t care about the value[^7] or index parameters. We just want some arbitrary values. So we can lose the arguments and return random numbers with [Math.random](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random):
 
 ```js
 Array.from(
@@ -192,7 +192,7 @@ Array.from(
 	() => Math.random()
 );
 
-// [0.9827377552249277, 0.07409193982747175, 0.8118452013993722, 0.9608580064232424, 0.1436456585838004]
+// [0.9827377552249277, 0.07409193982747175, ... ]
 ```
 
 Random numbers between 0 and 100:
@@ -203,7 +203,7 @@ Array.from(
 	() => Math.random() * 100
 );
 
-// [46.73939526991666, 97.6077039964036, 35.75426143372671, 20.059091655726725, 63.3944367327995]
+// [46.73939526991666, 97.6077039964036, ... ]
 ```
 
 And use `Math.floor` to turn them into integers:
@@ -413,7 +413,7 @@ computeAngles (acc, item) {
 }
 
 ```
-# Render the \<path\>s
+# Render the &lt;path&gt;s
 
 ```js
 makePath = ({angleDeg, startAngle, endAngle}, i) => {
@@ -444,13 +444,13 @@ makePath = ({angleDeg, startAngle, endAngle}, i) => {
 	* set a `stroke-width` attribute on the path element at the desired size
 	* set a `stroke` attribute to specify the stroke color
 * Using CSS:
-	```css
-		path {
-		  fill: none;
-		  stroke: red;
-		  stroke-width: 12px;
-		}
-		```
+```css
+	path {
+		fill: none;
+		stroke: red;
+		stroke-width: 12px;
+	}
+```
 # Color cycling with CSS
 * using `nth-child` to cycle through a color palette
 	* nth-child primer
@@ -497,27 +497,31 @@ makePath = ({angleDeg, startAngle, endAngle}, i) => {
 ```js
 	angleForArcLength = (arcLength, atRadius) => arcLength / atRadius;`
 ```
-	* how/why this works
-* Add the offsets to the coordinate calculations
-	* start angle inner + offset inner
-	* start angle outer + offset outer
-	* end angle outer - offset outer
-	* end angle inner - offset inner
-* Problems
-	* small values swallowed by gaps
-		* omit gaps for values \< inner gap offset
-			```js
-				**
-				 * The minimum angle that won't be swallowed by the gap offsets at the inner edge.
-				 * Used to compute the minimum value that won't get swallowed (minimumValue defined below)
-				 */
-				const minimumAngleDeg = r2d(angleForArcLength(gapSize * 2, radiusInner));
+* how/why this works
 
-				/**
-				 * The minimum value that won't get swallowed by the gap offsets at the inner edge
-				 */
-				const minimumValue = minimumAngleDeg / 360;
-				```
+## Add the offsets to the coordinate calculations
+* start angle inner + offset inner
+* start angle outer + offset outer
+* end angle outer - offset outer
+* end angle inner - offset inner
+
+## Problems
+* small values swallowed by gaps
+* omit gaps for values < inner gap offset
+
+```js
+	/**
+	* The minimum angle that won't be swallowed by the gap offsets at the inner edge.
+	* Used to compute the minimum value that won't get swallowed (minimumValue defined below)
+	*/
+	const minimumAngleDeg = r2d(angleForArcLength(gapSize * 2, radiusInner));
+
+	/**
+ 	* The minimum value that won't get swallowed by the gap offsets at the inner edge
+	*/
+	const minimumValue = minimumAngleDeg / 360;
+```
+
 # conclusion/review/wrap-up
 
 [^1]:	I’m using [React](https://reactjs.org "React") here, but the technique I’m describing does not require it. One could easily do this with plain javascript using [createElement](https://developer.mozilla.org/en-US/docs/Web/API/Document/createElement) and [appendChild](https://developer.mozilla.org/en-US/docs/Web/API/Node/appendChild).
