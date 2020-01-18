@@ -6,8 +6,8 @@
 
 module.exports = {
   siteMetadata: {
-    title: 'ray hatfield',
-    description: 'ray hatfield: mild persistent panic',
+    title: 'information of questionable value',
+    description: 'javascript and web development nerdery from ray hatfield.',
     author: 'ray hatfield',
     social: {
       twitter: '@rayhatfield'
