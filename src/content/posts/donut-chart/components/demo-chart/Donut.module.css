@@ -1,6 +1,7 @@
 .donut-chart-container {
   display: flex;
   flex: 1 1 auto;
+  flex-direction: column;
 }
 
 .donut-chart-container > * {

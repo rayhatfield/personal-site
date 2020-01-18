@@ -1,0 +1,11 @@
+.byline {
+	font-family: var(--headingFontFamily, "Gotham Narrow SSm A", "Gotham Narrow SSm B");
+	text-transform: uppercase;
+	font-weight: 700;
+	opacity: 0.35;
+	font-size: 14px;
+}
+
+.author {
+	font-style: normal;
+}
