@@ -1,21 +1,32 @@
-.root {
+.root > article {
 	--lineLength: 66ch;
-	max-width: var(--lineLength);
-	margin: 0 auto;
+	display: grid;
+	grid-template-columns:
+		[full-start] minmax(1em, 1fr)
+		[main-start] minmax(0, var(--lineLength, 66ch))
+		[main-end] minmax(1em, 1fr)
+		[full-end];
 }
 
-.root [data-language] {
-	margin: 0 calc(-50vw + 33ch) 1.722222rem;
+.root > article > * {
+	grid-column: main;
+}
+
+.root > article > [data-language] {
+	/* margin: 0 calc(-50vw + 33ch) 1.722222rem; */
+	/* grid-column: full; */
+	margin-bottom: 1.72222rem;
 }
 
 .root [data-language] pre {
-	padding: 2em 5em;
-	display: flex;
+	padding: 1em;
+	/* display: flex; */
+	/* min-width: var(--lineLength); */
 }
 
 .root [data-language] pre code {
-	margin: 0 auto;
-	min-width: var(--lineLength); /* different font; won't precisely line up with surrounding text */
+	/* margin: 0 auto; */
+	/* min-width: var(--lineLength); */ /* different font; won't precisely line up with surrounding text */
 	tab-size: 2;
 	font-size: 14px;
 }
