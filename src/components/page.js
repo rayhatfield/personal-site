@@ -1,6 +1,8 @@
 import React from 'react';
-import {Helmet} from 'react-helmet';
+import { Helmet } from 'react-helmet';
+import { TypographyStyle } from 'react-typography';
 
+import typography from '../utils/typography';
 import {useSiteMetadata} from '../hooks';
 
 export default ({children}) => {
@@ -18,6 +20,7 @@ export default ({children}) => {
 				{/* <meta name="twitter:image" content={image} /> */}
 
 				<link rel="stylesheet" type="text/css" href="https://cloud.typography.com/704534/7134372/css/fonts.css" />
+				<TypographyStyle typography={typography} />
 			</Helmet>
 			{children}
 		</>

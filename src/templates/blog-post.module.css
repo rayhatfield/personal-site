@@ -5,7 +5,7 @@
 }
 
 .root [data-language] {
-	margin: 0 calc(-50vw + 33ch);
+	margin: 0 calc(-50vw + 33ch) 1.722222rem;
 }
 
 .root [data-language] pre {
@@ -15,5 +15,7 @@
 
 .root [data-language] pre code {
 	margin: 0 auto;
-    min-width: var(--lineLength); /* different font; won't precisely line up with surrounding text */
+	min-width: var(--lineLength); /* different font; won't precisely line up with surrounding text */
+	tab-size: 2;
+	font-size: 14px;
 }
