@@ -20,7 +20,7 @@ exports.default = async (graphql, actions) => {
 		console.info(`creating mdx page: ${node.fields.slug}`);
 		createPage({
 			path: node.fields.slug,
-			component: path.resolve('./src/templates/blog-post-mdx.js'),
+			component: path.resolve('./src/templates/blog-post-mdx/index.js'),
 			context: {
 				// data passed to context is available
 				// in page queries as GraphQL variables

@@ -3,9 +3,8 @@ import { graphql } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import {Helmet} from 'react-helmet';
 
-import Byline from '../components/byline.jsx';
-
 import styles from './blog-post.module.css';
+import Header from './components/header';
 
 export default function PageTemplate({data: {mdx}}) {
 	const {frontmatter, body} = mdx;
@@ -15,10 +14,7 @@ export default function PageTemplate({data: {mdx}}) {
 				<title>{frontmatter.title}</title>
 			</Helmet>
 			<article>
-				<header>
-					<h1>{frontmatter.title}</h1>
-					<Byline {...frontmatter} />
-				</header>
+				<Header frontmatter={frontmatter} />
 				<MDXRenderer>{body}</MDXRenderer>
 			</article>
 		</div>
@@ -34,6 +30,13 @@ export const query = graphql`
 				title
 				author
 				date
+				featuredImage {
+					childImageSharp {
+						fluid(maxWidth: 800) {
+							...GatsbyImageSharpFluid
+						}
+					}
+				}
 			}
 		}
 	}
