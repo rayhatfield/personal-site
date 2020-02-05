@@ -15,6 +15,7 @@ const typography = new Typography({
 		'pre[class*=language-], code[class*=language-]': {
 			tabSize: 2,
 			fontSize: '14px',
+			fontFamily: '"Operator Mono SSm A", "Operator Mono SSm B"',
 		}
 	})
 });
