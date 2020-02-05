@@ -1,0 +1,6 @@
+.arc-group {
+	stroke: lightskyblue;
+	fill: none;
+	transition: stroke-dashoffset 1s;
+	stroke-dashoffset: 0;
+}
