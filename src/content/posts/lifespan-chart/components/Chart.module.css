@@ -1,0 +1,54 @@
+.list-root {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	/* grid-column: full !important; */
+	margin: 0 0 96px;
+	/* margin: 0 96px 96px; */
+	display: grid;
+	grid-template-columns: repeat(52, 1fr);
+	position: relative;
+}
+
+.list-root::before,
+.list-root::after,
+.list-root > .now::after {
+	position: absolute;
+	font-size: 0.75rem;
+	right: 100%;
+	margin-right: 0.5em;
+	transform: translateY(-0.6em);
+}
+
+.list-root > * {
+	--m: 1px;
+	height: 0;
+	padding: 0;
+	overflow: hidden;
+	padding-bottom: calc(100% - (var(--m) * 2));
+	background: #ccc;
+	margin: var(--m);
+}
+
+.list-root > .now {
+	background: red;
+}
+
+.list-root::before {
+	content: attr(data-birth);
+	top: 0.2em;
+}
+
+.list-root::after {
+	content: attr(data-death);
+	bottom: -1em;
+}
+
+.list-root > .now::after {
+	content: attr(data-year);
+}
+
+.list-root > .now ~ * {
+	background: none;
+	box-shadow: inset 0 0 0 1px #ccc;
+}

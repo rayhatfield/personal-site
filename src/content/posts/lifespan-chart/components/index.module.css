@@ -1,0 +1,19 @@
+.controls {
+	margin-bottom: 1rem;
+	font-family: var(--headingFontFamily, "Gotham Narrow SSm A", "Gotham Narrow SSm B");
+	font-size: 0.75rem;
+	display: flex;
+}
+
+.controls > * {
+	flex: 0 0 auto;
+	margin-right: 1em;
+}
+
+.label {
+	font-size: 0.625rem;
+	text-transform: uppercase;
+	font-weight: bold;
+	display: block;
+	opacity: 0.35;
+}
